@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-do application</title>
+</head>
+<body>
+<h1>This is a list of all existing tasks</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>isCompleted</th>
+    </tr>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.id}">123</td>
+        <td th:text="${task.name}">Learn Spring</td>
+        <td th:text="${task.isCompleted}">rtryfhg</td>
+    </tr>
+</table>
+
+</body>
+</html>

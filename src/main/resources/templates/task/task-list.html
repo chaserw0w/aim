@@ -5,7 +5,16 @@
     <title>To-do application</title>
 </head>
 <body>
-<h1>This is a list of all existing tasks</h1>
+
+<div th:switch="${tasks}">
+    <h2 th:case="null">No tasks found!</h2>
+    <div th:case="*">
+        <h2>Tasks</h2>
+        <table></table>
+
+    </div>
+
+</div>
 
 <table>
     <tr>

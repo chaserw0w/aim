@@ -23,8 +23,8 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public Task saveTask(Task task) {
-        return taskRepository.save(task);
+    public void saveTask(Task task) {
+        taskRepository.save(task);
     }
 
     public void deleteById(Long id) {

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Task</title>
+</head>
+<body>
+  <form action="/aim/task-update" th:action="@{/aim/task-update}" th:object="${task}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Task Name">
+    <br/>
+    <label for="isCompleted">isCompleted</label>
+    <input type="checkbox" id="isCompleted" placeholder="Is the task completed?">
+    <br/>
+    <input type="submit" value="Update task">
+  </form>
+</body>
+</html>

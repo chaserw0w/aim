@@ -23,6 +23,7 @@
                     <td th:text="${task.id}"></td>
                     <td th:text="${task.name}"></td>
                     <td th:text="${task.isCompleted}"></td>
+                    <td><a th:href="@{task-update/{id}(id=${task.id})}">Edit</a></td>
                 </tr>
             </tbody>
         </table>

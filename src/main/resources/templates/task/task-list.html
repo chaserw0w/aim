@@ -10,24 +10,25 @@
     <h2 th:case="null">No tasks found!</h2>
     <div th:case="*">
         <h2>Tasks</h2>
-        <table></table>
-
+        <table>
+            <thread>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>isCompleted</th>
+                </tr>
+            </thread>
+            <tbody>
+                <tr th:each="task: ${tasks}">
+                    <td th:text="${task.id}"></td>
+                    <td th:text="${task.name}"></td>
+                    <td th:text="${task.isCompleted}"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-
+    <p><a href="/aim/task-create">Create new task</a></p>
 </div>
-
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>isCompleted</th>
-    </tr>
-    <tr th:each="task : ${tasks}">
-        <td th:text="${task.id}">123</td>
-        <td th:text="${task.name}">Learn Spring</td>
-        <td th:text="${task.isCompleted}">rtryfhg</td>
-    </tr>
-</table>
 
 </body>
 </html>

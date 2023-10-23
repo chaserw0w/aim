@@ -5,9 +5,9 @@
     <title>Create Task</title>
 </head>
 <body>
-  <form action="#" th:action="@{/task-create}" th:object="${task}" method="post">
+  <form action="/aim/task-create" th:action="@{/aim/task-create}" th:object="${task}" method="post">
     <label for="name">Task name</label>
-    <input type="text" th:field="${name}" id="name" placeholder="Task name">
+    <input type="text" th:field="*{name}" id="name" placeholder="Task name">
     <input type="submit" value="Create Task">
   </form>
 </body>

@@ -2,26 +2,30 @@ package com.chaserw0w.aim.controller;
 
 import com.chaserw0w.aim.domain.Task;
 import com.chaserw0w.aim.repository.TaskRepository;
+import com.chaserw0w.aim.service.TaskService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/aim")
 public class TaskController {
 
-    private final TaskRepository taskRepository;
+    private final TaskService taskService;
 
-    public TaskController(TaskRepository taskRepository) {
-        this.taskRepository = taskRepository;
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
     }
 
 
     @GetMapping("/tasks")
     public String getTasks(Model model) {
-
-        model.addAttribute("tasks", taskRepository.findAll());
+        List<Task> tasks = taskService.findAll();
+        model.addAttribute("tasks", tasks);
 
         return "task/task-list";
     }
@@ -29,5 +33,11 @@ public class TaskController {
     @GetMapping("/task-create")
     public String createTaskForm(Task task) {
         return "task/task-create";
+    }
+
+    @PostMapping("/task-create")
+    public String createTask(Task task) {
+        taskService.saveTask(task);
+        return "redirect:/aim/tasks";
     }
 }

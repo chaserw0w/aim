@@ -11,13 +11,13 @@
     <div th:case="*">
         <h2>Tasks</h2>
         <table>
-            <thread>
+            <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
                     <th>isCompleted</th>
                 </tr>
-            </thread>
+            </thead>
             <tbody>
                 <tr th:each="task: ${tasks}">
                     <td th:text="${task.id}"></td>

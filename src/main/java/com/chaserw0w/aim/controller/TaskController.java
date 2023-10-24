@@ -52,4 +52,10 @@ public class TaskController {
         taskService.saveTask(task);
         return "redirect:/aim/tasks";
     }
+
+    @GetMapping("/task-delete/{id}")
+    public String deleteTask(@PathVariable("id") Long id) {
+        taskService.deleteById(id);
+        return "redirect:/aim/tasks";
+    }
 }

@@ -2,14 +2,18 @@ package com.chaserw0w.aim.controller;
 
 import com.chaserw0w.aim.domain.Task;
 import com.chaserw0w.aim.service.TaskService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/aim")
+@Slf4j
 public class TaskController {
 
     private final TaskService taskService;
@@ -33,7 +37,9 @@ public class TaskController {
 
     @PostMapping("/task-create")
     public String createTask(Task task) {
+        task.setIsCompleted(Optional.ofNullable(task.getIsCompleted()).orElse(false));
         taskService.saveTask(task);
+
         return "redirect:/aim/tasks";
     }
 

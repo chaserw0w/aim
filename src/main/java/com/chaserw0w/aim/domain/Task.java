@@ -8,9 +8,9 @@ import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 @Component
-@Entity
 @Getter
 @Setter
+@Entity
 @NoArgsConstructor
 public class Task {
 
@@ -21,7 +21,7 @@ public class Task {
     @Column(name = "name")
     private String name;
     @Column(name = "isCompleted")
-    private Boolean isCompleted;
+    private Boolean isCompleted = false;
 
     public Task(String name, Boolean isCompleted) {
         this.name = name;
